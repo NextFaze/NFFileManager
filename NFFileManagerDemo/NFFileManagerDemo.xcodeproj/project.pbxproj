@@ -23,8 +23,8 @@
 		7C4BCCE61842E93F00AA8128 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C4BCCC21842E93F00AA8128 /* UIKit.framework */; };
 		7C4BCCEE1842E93F00AA8128 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7C4BCCEC1842E93F00AA8128 /* InfoPlist.strings */; };
 		7C4BCCF01842E93F00AA8128 /* NFFileManagerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4BCCEF1842E93F00AA8128 /* NFFileManagerDemoTests.m */; };
-		7C4BCCFC1842E99100AA8128 /* NFFIleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4BCCFB1842E99100AA8128 /* NFFIleManager.m */; };
-		7C4BCCFD1842E99100AA8128 /* NFFIleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4BCCFB1842E99100AA8128 /* NFFIleManager.m */; };
+		7C4BCCFC1842E99100AA8128 /* NFFIleManagerOld.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4BCCFB1842E99100AA8128 /* NFFIleManagerOld.m */; };
+		7C4BCCFD1842E99100AA8128 /* NFFIleManagerOld.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4BCCFB1842E99100AA8128 /* NFFIleManagerOld.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,8 +60,8 @@
 		7C4BCCEB1842E93F00AA8128 /* NFFileManagerDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NFFileManagerDemoTests-Info.plist"; sourceTree = "<group>"; };
 		7C4BCCED1842E93F00AA8128 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7C4BCCEF1842E93F00AA8128 /* NFFileManagerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFFileManagerDemoTests.m; sourceTree = "<group>"; };
-		7C4BCCFA1842E99100AA8128 /* NFFIleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NFFIleManager.h; sourceTree = "<group>"; };
-		7C4BCCFB1842E99100AA8128 /* NFFIleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NFFIleManager.m; sourceTree = "<group>"; };
+		7C4BCCFA1842E99100AA8128 /* NFFIleManagerOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NFFIleManagerOld.h; sourceTree = "<group>"; };
+		7C4BCCFB1842E99100AA8128 /* NFFIleManagerOld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NFFIleManagerOld.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,8 +168,8 @@
 		7C4BCCF91842E97B00AA8128 /* NFFileManager */ = {
 			isa = PBXGroup;
 			children = (
-				7C4BCCFA1842E99100AA8128 /* NFFIleManager.h */,
-				7C4BCCFB1842E99100AA8128 /* NFFIleManager.m */,
+				7C4BCCFA1842E99100AA8128 /* NFFIleManagerOld.h */,
+				7C4BCCFB1842E99100AA8128 /* NFFIleManagerOld.m */,
 			);
 			name = NFFileManager;
 			path = ../NFFileManager;
@@ -278,7 +278,7 @@
 				7C4BCCDB1842E93F00AA8128 /* NFDetailViewController.m in Sources */,
 				7C4BCCCB1842E93F00AA8128 /* main.m in Sources */,
 				7C4BCCD81842E93F00AA8128 /* NFMasterViewController.m in Sources */,
-				7C4BCCFC1842E99100AA8128 /* NFFIleManager.m in Sources */,
+				7C4BCCFC1842E99100AA8128 /* NFFIleManagerOld.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,7 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C4BCCF01842E93F00AA8128 /* NFFileManagerDemoTests.m in Sources */,
-				7C4BCCFD1842E99100AA8128 /* NFFIleManager.m in Sources */,
+				7C4BCCFD1842E99100AA8128 /* NFFIleManagerOld.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
