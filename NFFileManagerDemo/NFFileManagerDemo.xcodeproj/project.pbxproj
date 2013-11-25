@@ -23,8 +23,10 @@
 		7C4BCCE61842E93F00AA8128 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C4BCCC21842E93F00AA8128 /* UIKit.framework */; };
 		7C4BCCEE1842E93F00AA8128 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7C4BCCEC1842E93F00AA8128 /* InfoPlist.strings */; };
 		7C4BCCF01842E93F00AA8128 /* NFFileManagerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4BCCEF1842E93F00AA8128 /* NFFileManagerDemoTests.m */; };
-		7C4BCCFC1842E99100AA8128 /* NFFIleManagerOld.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4BCCFB1842E99100AA8128 /* NFFIleManagerOld.m */; };
-		7C4BCCFD1842E99100AA8128 /* NFFIleManagerOld.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4BCCFB1842E99100AA8128 /* NFFIleManagerOld.m */; };
+		7C4BCCFC1842E99100AA8128 /* NFFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4BCCFB1842E99100AA8128 /* NFFileManager.m */; };
+		7C4BCCFD1842E99100AA8128 /* NFFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4BCCFB1842E99100AA8128 /* NFFileManager.m */; };
+		7C4BCCFF1842F8DD00AA8128 /* blank.html in Resources */ = {isa = PBXBuildFile; fileRef = 7C4BCCFE1842F8DD00AA8128 /* blank.html */; };
+		7C4BCD001842F8DD00AA8128 /* blank.html in Resources */ = {isa = PBXBuildFile; fileRef = 7C4BCCFE1842F8DD00AA8128 /* blank.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,8 +62,9 @@
 		7C4BCCEB1842E93F00AA8128 /* NFFileManagerDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NFFileManagerDemoTests-Info.plist"; sourceTree = "<group>"; };
 		7C4BCCED1842E93F00AA8128 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7C4BCCEF1842E93F00AA8128 /* NFFileManagerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFFileManagerDemoTests.m; sourceTree = "<group>"; };
-		7C4BCCFA1842E99100AA8128 /* NFFIleManagerOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NFFIleManagerOld.h; sourceTree = "<group>"; };
-		7C4BCCFB1842E99100AA8128 /* NFFIleManagerOld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NFFIleManagerOld.m; sourceTree = "<group>"; };
+		7C4BCCFA1842E99100AA8128 /* NFFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NFFileManager.h; sourceTree = "<group>"; };
+		7C4BCCFB1842E99100AA8128 /* NFFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NFFileManager.m; sourceTree = "<group>"; };
+		7C4BCCFE1842F8DD00AA8128 /* blank.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = blank.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +142,7 @@
 		7C4BCCC51842E93F00AA8128 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7C4BCCFE1842F8DD00AA8128 /* blank.html */,
 				7C4BCCC61842E93F00AA8128 /* NFFileManagerDemo-Info.plist */,
 				7C4BCCC71842E93F00AA8128 /* InfoPlist.strings */,
 				7C4BCCCA1842E93F00AA8128 /* main.m */,
@@ -168,8 +172,8 @@
 		7C4BCCF91842E97B00AA8128 /* NFFileManager */ = {
 			isa = PBXGroup;
 			children = (
-				7C4BCCFA1842E99100AA8128 /* NFFIleManagerOld.h */,
-				7C4BCCFB1842E99100AA8128 /* NFFIleManagerOld.m */,
+				7C4BCCFA1842E99100AA8128 /* NFFileManager.h */,
+				7C4BCCFB1842E99100AA8128 /* NFFileManager.m */,
 			);
 			name = NFFileManager;
 			path = ../NFFileManager;
@@ -252,6 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C4BCCFF1842F8DD00AA8128 /* blank.html in Resources */,
 				7C4BCCD51842E93F00AA8128 /* Main_iPad.storyboard in Resources */,
 				7C4BCCDD1842E93F00AA8128 /* Images.xcassets in Resources */,
 				7C4BCCD21842E93F00AA8128 /* Main_iPhone.storyboard in Resources */,
@@ -264,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C4BCCEE1842E93F00AA8128 /* InfoPlist.strings in Resources */,
+				7C4BCD001842F8DD00AA8128 /* blank.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,7 +284,7 @@
 				7C4BCCDB1842E93F00AA8128 /* NFDetailViewController.m in Sources */,
 				7C4BCCCB1842E93F00AA8128 /* main.m in Sources */,
 				7C4BCCD81842E93F00AA8128 /* NFMasterViewController.m in Sources */,
-				7C4BCCFC1842E99100AA8128 /* NFFIleManagerOld.m in Sources */,
+				7C4BCCFC1842E99100AA8128 /* NFFileManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,7 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C4BCCF01842E93F00AA8128 /* NFFileManagerDemoTests.m in Sources */,
-				7C4BCCFD1842E99100AA8128 /* NFFIleManagerOld.m in Sources */,
+				7C4BCCFD1842E99100AA8128 /* NFFileManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

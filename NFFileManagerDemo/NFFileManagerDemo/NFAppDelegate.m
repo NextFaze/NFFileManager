@@ -7,11 +7,19 @@
 //
 
 #import "NFAppDelegate.h"
+#import "NFFileManager.h"
 
 @implementation NFAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NFFileManager *fileManager = [NFFileManager sharedManager];
+    fileManager.printDebugMessages = YES;
+    fileManager.serverPath = @"http://test.faze.biz/files";
+    fileManager.filenames = @[@"blank.html",
+                              @"nextfaze-SQ-512x512.png",
+                              @"wallpaper.png"];
+    
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
