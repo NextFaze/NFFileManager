@@ -7,13 +7,26 @@ NB: Because NSURLConnection is used with caching, the files are also saved in a 
 
 If you don't need any server functionality, you can still use the NFFileManager to read files locally. It will read from the documents dir, and if the file doesn't exist there it will read from the main bundle. If the file is found in the main bundle it will also write it to the documents dir for next time.
 
-## Integration instructions
+## Installation
 
 1. Add submodule to your project:
 
     `$ git submodule add git@github.com:NextfazeSD/NFFileManager.git ThirdParty/NFFileManager`
     
 2. Drag the `NFFileManager` folder from Finder to the ThirdParty folder in your project tree. It should contain two files, `NFFileManager.h` and `NFFileManger.m`.
+
+## Usage
+
+Setup like so, usually in `application:didfinishLaunchingWithOptions`:
+
+    NFFileManager *fileManager = [NFFileManager sharedManager];
+    fileManager.printDebugMessages = YES;
+    fileManager.serverPath = @"http://files.faze.biz/nffilemanager";
+    fileManager.filenames = @[@"blank.html",
+                              @"blank2.html",
+                              @"doesntexist.html",
+                              @"nextfaze-SQ-512x512.png",
+                              @"wallpaper.png"];
 
 
 ## Contact
@@ -24,4 +37,4 @@ If you don't need any server functionality, you can still use the NFFileManager 
 
 Copyright 2013 [NextFaze](http://nextfaze.com).
 
-NFAllocInit is licensed under the terms of the [Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html). Please see the [LICENSE](https://github.com/NextfazeSD/NFFileManager/blob/master/LICENSE) file for full details.
+NFFileManager is licensed under the terms of the [Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html). Please see the [LICENSE](https://github.com/NextfazeSD/NFFileManager/blob/master/LICENSE) file for full details.
