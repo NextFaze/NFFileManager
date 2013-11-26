@@ -8,14 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString *const NFFileManagerSyncFinishedNotification;
+
 @interface NFFileManager : NSObject
 
 @property (nonatomic, strong) NSString *serverPath;
 @property (nonatomic, strong) NSArray *filenames;
 @property (nonatomic, assign) BOOL printDebugMessages;
+@property (nonatomic, readonly) BOOL syncInProgress;
+@property (nonatomic, assign) NSInteger maxConcurrentDownloads;
 
 + (NFFileManager *)sharedManager;
-+ (void)sync;
-+ (NSData *)fileWithName:(NSString *)filename;
++ (NSString *)mimeTypeForFilename:(NSString *)filename;
+
+- (void)sync;
+- (NSData *)fileWithName:(NSString *)filename;
 
 @end

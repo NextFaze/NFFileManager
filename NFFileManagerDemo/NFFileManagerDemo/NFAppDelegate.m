@@ -15,8 +15,10 @@
 {
     NFFileManager *fileManager = [NFFileManager sharedManager];
     fileManager.printDebugMessages = YES;
-    fileManager.serverPath = @"http://test.faze.biz/files";
+    fileManager.serverPath = @"http://files.faze.biz/nffilemanager";
     fileManager.filenames = @[@"blank.html",
+                              @"blank2.html",
+                              @"doesntexist.html",
                               @"nextfaze-SQ-512x512.png",
                               @"wallpaper.png"];
     

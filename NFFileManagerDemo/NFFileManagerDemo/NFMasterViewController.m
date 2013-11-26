@@ -44,7 +44,7 @@
 
 - (void)sync:(id)sender
 {
-    [NFFileManager sync];
+    [[NFFileManager sharedManager] sync];
 }
 
 #pragma mark - Table View
@@ -81,7 +81,7 @@
         NSArray *filenames = [NFFileManager sharedManager].filenames;
         NSString *filename = filenames[indexPath.row];
         self.detailViewController.filename = filename;
-        self.detailViewController.data = [NFFileManager fileWithName:filename];
+        self.detailViewController.data = [[NFFileManager sharedManager] fileWithName:filename];
     }
 }
 
@@ -92,7 +92,7 @@
         
         NSArray *filenames = [NFFileManager sharedManager].filenames;
         NSString *filename = filenames[indexPath.row];
-        NSData *data = [NFFileManager fileWithName:filename];
+        NSData *data = [[NFFileManager sharedManager] fileWithName:filename];
         [[segue destinationViewController] setFilename:filename];
         [[segue destinationViewController] setData:data];
     }

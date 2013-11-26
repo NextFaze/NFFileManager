@@ -7,6 +7,7 @@
 //
 
 #import "NFDetailViewController.h"
+#import "NFFileManager.h"
 
 @interface NFDetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -54,7 +55,7 @@
         self.detailDescriptionLabel.text = nil;
         
         self.webView.hidden = NO;
-        [self.webView loadData:self.data MIMEType:nil textEncodingName:nil baseURL:nil];
+        [self.webView loadData:self.data MIMEType:[NFFileManager mimeTypeForFilename:self.filename] textEncodingName:nil baseURL:nil];
     }
 }
 
