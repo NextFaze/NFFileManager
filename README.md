@@ -14,6 +14,7 @@ If you don't need any server functionality, you can still use the NFFileManager 
     `$ git submodule add git@github.com:NextfazeSD/NFFileManager.git ThirdParty/NFFileManager`
     
 2. Drag the `NFFileManager` folder from Finder to the ThirdParty folder in your project tree. It should contain two files, `NFFileManager.h` and `NFFileManger.m`.
+3. NFFileManager uses ARC, so if your project doesn't use ARC, add the `-fobjc-arc` compiler flag to `NFFileManager.m` in the Build Phases tab.
 
 ## Usage
 
