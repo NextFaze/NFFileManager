@@ -106,14 +106,6 @@ NSString *const NFFileManagerKeyEtags = @"NFFileManagerEtags";
             [request setValue:etag forHTTPHeaderField:@"If-None-Match"];
         }
         
-        if (self.printDebugMessages) {
-            NSLog(@"Request Header Fields:");
-            NSDictionary *headers = [request allHTTPHeaderFields];
-            for (NSString *key in [headers allKeys]) {
-                NSLog(@"%@ : %@", key, [headers objectForKey:key]);
-            }
-        }
-        
         [NSURLConnection sendAsynchronousRequest:request
                                            queue:self.operationQueue
                                completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
@@ -122,12 +114,6 @@ NSString *const NFFileManagerKeyEtags = @"NFFileManagerEtags";
                                    
                                    if (self.printDebugMessages) {
                                        NSLog(@"Response Code %d for file %@", httpResponse.statusCode, filename);
-
-                                       NSLog(@"\n\nResponse Header Fields:");
-                                       NSDictionary *headers = [httpResponse allHeaderFields];
-                                       for (NSString *key in [headers allKeys]) {
-                                           NSLog(@"%@ : %@", key, [headers objectForKey:key]);
-                                       }
                                    }
                                    
                                    if (connectionError) {
