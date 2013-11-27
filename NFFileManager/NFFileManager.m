@@ -197,6 +197,29 @@ NSString *const NFFileManagerKeyEtags = @"NFFileManagerEtags";
     return nil;
 }
 
+- (NSString *)fullPathForFileWithName:(NSString *)filename
+{
+    // first try the documents directory
+    NSString *documentsPath = [[self documentsDirectory] stringByAppendingPathComponent:filename];
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:documentsPath]) {
+        return documentsPath;
+        
+    } else {
+        // then try the main bundle
+        NSString *resourceType = [filename pathExtension];
+        NSString *resourceName = [filename stringByDeletingPathExtension];
+        
+        NSString *bundlePath = [[NSBundle mainBundle] pathForResource:resourceName ofType:resourceType];
+        if (bundlePath) {
+            return bundlePath;
+        }
+    }
+    
+    NSLog(@"WARNING: Could not determine path for file named '%@'", filename);
+    return nil;
+}
+
 - (NSString *)documentsDirectory
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);

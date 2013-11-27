@@ -23,5 +23,6 @@ extern NSString *const NFFileManagerSyncFinishedNotification;
 
 - (void)sync;
 - (NSData *)fileWithName:(NSString *)filename;
+- (NSString *)fullPathForFileWithName:(NSString *)filename;
 
 @end
