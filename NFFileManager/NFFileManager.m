@@ -88,6 +88,10 @@ NSString *const NFFileManagerKeyEtags = @"NFFileManagerEtags";
     
     for (NSString *filename in self.filenames) {
         
+        if (filename.length == 0) {
+            continue;
+        }
+        
         BOOL isLastFile = filename == [self.filenames lastObject];
         
         NSString *path = [self.serverPath stringByAppendingPathComponent:filename];
