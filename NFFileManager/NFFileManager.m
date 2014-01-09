@@ -187,6 +187,16 @@ NSString *const NFFileManagerKeyEtags = @"NFFileManagerEtags";
     return nil;
 }
 
+- (UIImage *)imageWithName:(NSString *)filename
+{
+    CGFloat scale = [[UIScreen mainScreen] scale];
+    
+    NSData *data = [self fileWithName:filename];
+    UIImage *image = [[UIImage alloc] initWithData:data scale:scale];
+    
+    return image;
+}
+
 - (NSString *)fullPathForFileWithName:(NSString *)filename
 {
     // first try the documents directory
@@ -215,6 +225,30 @@ NSString *const NFFileManagerKeyEtags = @"NFFileManagerEtags";
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     return documentsDirectory;
+}
+
+- (NSString *)retinaStringForFilename:(NSString *)nonRetinaFilename
+{
+    // http://stackoverflow.com/questions/6404410/how-should-retina-normal-images-be-handled-when-loading-from-url
+    
+    // Find the range (location and length of ".")
+    // Use options parameter to start from the back.
+    NSRange extDotRange = [nonRetinaFilename rangeOfString:@"." options:NSBackwardsSearch];
+    // You can check whether the "." is there or not like this:
+    if (extDotRange.location == NSNotFound){
+        // Handle trouble
+        return nil;
+    }
+    
+    // We can use NSString's stringByReplacingCharactersInRange:withString: method to insert the "@2x".
+    // To do this we first calculate the range to 'replace'.
+    // For location we use the location of the ".".
+    // We use 0 for length since we do not want to replace anything.
+    NSRange insertRange = NSMakeRange(extDotRange.location, 0);
+    
+    // Lastly simply use the stringByReplacingCharactersInRange:withString: method to insert "@2x" in the insert range.
+    NSString *retinaAddress = [nonRetinaFilename stringByReplacingCharactersInRange:insertRange withString:@"@2x"];
+    return retinaAddress;
 }
 
 @end
