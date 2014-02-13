@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 extern NSString *const NFFileManagerSyncFinishedNotification;
+extern NSString *const NFFileManagerSyncStartedNotification;
+
 
 @interface NFFileManager : NSObject
 

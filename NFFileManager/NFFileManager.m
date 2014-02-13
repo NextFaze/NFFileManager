@@ -10,13 +10,15 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 
 NSString *const NFFileManagerSyncFinishedNotification = @"NFFileManagerSyncFinishedNotification";
+NSString *const NFFileManagerSyncStartedNotification = @"NFFileManagerSyncStartedNotification";
 
 NSString *const NFFileManagerKeyEtags = @"NFFileManagerEtags";
 
 @interface NFFileManager () <NSURLConnectionDelegate>
-@property (nonatomic, strong) NSOperationQueue *operationQueue;
 @property (nonatomic, assign) BOOL syncInProgress;
 @property (nonatomic, strong) NSMutableDictionary *etags;
+@property (nonatomic, strong) NSOperationQueue *operationQueue;
+
 @end
 
 @implementation NFFileManager
@@ -83,6 +85,8 @@ NSString *const NFFileManagerKeyEtags = @"NFFileManagerEtags";
     }
     
     self.syncInProgress = YES;
+    [[NSNotificationCenter defaultCenter] postNotificationName:NFFileManagerSyncStartedNotification object:nil];
+
     
     NSDate *syncStartDate = [NSDate date];
     
@@ -94,7 +98,7 @@ NSString *const NFFileManagerKeyEtags = @"NFFileManagerEtags";
         
         BOOL isLastFile = filename == [self.filenames lastObject];
         
-        NSString *path = [self.serverPath stringByAppendingPathComponent:filename];
+        NSString *path = [self.serverPath stringByAppendingFormat:@"/%@", filename];
         
         if (self.printDebugMessages) {
             NSLog(@"Requesting file with path: %@", path);
@@ -155,34 +159,35 @@ NSString *const NFFileManagerKeyEtags = @"NFFileManagerEtags";
 
 - (NSData *)fileWithName:(NSString *)filename
 {
-    // first try the documents directory
-    NSString *documentsPath = [[self documentsDirectory] stringByAppendingPathComponent:filename];
-    
-    if ([[NSFileManager defaultManager] fileExistsAtPath:documentsPath]) {
-        if (self.printDebugMessages) {
-            NSLog(@"SUCCESS. Found '%@' in the documents directory.", filename);
-        }
+    if (filename.length) {
+        // first try the documents directory
+        NSString *documentsPath = [[self documentsDirectory] stringByAppendingPathComponent:filename];
         
-        NSURL *url = [NSURL fileURLWithPath:documentsPath];
-        NSData *data = [[NSData alloc] initWithContentsOfURL:url];
-        return data;
-
-    } else {
-        // then try the main bundle
-        NSString *resourceType = [filename pathExtension];
-        NSString *resourceName = [filename stringByDeletingPathExtension];
-        
-        NSString *bundlePath = [[NSBundle mainBundle] pathForResource:resourceName ofType:resourceType];
-        if (bundlePath) {
-            NSLog(@"SUCCESS. Found '%@' in the main bundle.", filename);
-
-            NSData *data = [[NSData alloc] initWithContentsOfFile:bundlePath];
-            [data writeToFile:documentsPath atomically:YES];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:documentsPath]) {
+            if (self.printDebugMessages) {
+                NSLog(@"SUCCESS. Found '%@' in the documents directory.", filename);
+            }
             
+            NSURL *url = [NSURL fileURLWithPath:documentsPath];
+            NSData *data = [[NSData alloc] initWithContentsOfURL:url];
             return data;
+
+        } else {
+            // then try the main bundle
+            NSString *resourceType = [filename pathExtension];
+            NSString *resourceName = [filename stringByDeletingPathExtension];
+            
+            NSString *bundlePath = [[NSBundle mainBundle] pathForResource:resourceName ofType:resourceType];
+            if (bundlePath) {
+                NSLog(@"SUCCESS. Found '%@' in the main bundle.", filename);
+
+                NSData *data = [[NSData alloc] initWithContentsOfFile:bundlePath];
+                [data writeToFile:documentsPath atomically:YES];
+                
+                return data;
+            }
         }
     }
-    
     NSLog(@"WARNING: Could not locate file named '%@'", filename);
     return nil;
 }
