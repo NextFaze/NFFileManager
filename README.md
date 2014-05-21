@@ -9,6 +9,18 @@ If you don't need any server functionality, you can still use the NFFileManager 
 
 ## Installation
 
+### Via CocoaPods
+
+1. Add to your Podfile:
+
+	`pod 'NFFileManager', :git => 'https://github.com/NextfazeSD/NFFileManager.git'
+
+2. Run Install:
+	
+	`$ pod install'
+
+### Via Git Submodules
+
 1. Add submodule to your project:
 
     `$ git submodule add git@github.com:NextfazeSD/NFFileManager.git ThirdParty/NFFileManager`
