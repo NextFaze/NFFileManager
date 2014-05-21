@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "NFFileManager"
-  s.version      = "1.0.0"
+  s.version      = "1.1.0"
   s.summary      = "Read files from the bundle or documents dir, and update from a remote path."
 
   s.description  = <<-DESC
