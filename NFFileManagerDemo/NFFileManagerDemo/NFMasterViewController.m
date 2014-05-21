@@ -9,6 +9,7 @@
 #import "NFMasterViewController.h"
 #import "NFDetailViewController.h"
 #import "NFFileManager.h"
+#import "NFAddViewController.h"
 
 @interface NFMasterViewController () {
     
@@ -33,18 +34,29 @@
 
     UIBarButtonItem *syncButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(sync:)];
     self.navigationItem.rightBarButtonItem = syncButton;
+    
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(add:)];
+    self.navigationItem.leftBarButtonItem = addButton;
+    
     self.detailViewController = (NFDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self.tableView reloadData];
 }
 
 - (void)sync:(id)sender
 {
     [[NFFileManager sharedManager] sync];
+}
+
+- (void)add:(id)sender
+{
+    NFAddViewController *addViewController = [[NFAddViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:addViewController];
+    
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 #pragma mark - Table View

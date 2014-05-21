@@ -121,11 +121,11 @@ NSString *const NFFileManagerKeyEtags = @"NFFileManagerEtags";
                                    NSHTTPURLResponse * httpResponse = (NSHTTPURLResponse*)response;
                                    
                                    if (self.printDebugMessages) {
-                                       NSLog(@"Response Code %d for file %@", httpResponse.statusCode, filename);
+                                       NSLog(@"Response Code %ld for file %@", (long)httpResponse.statusCode, filename);
                                    }
                                    
                                    if (connectionError) {
-                                       NSLog(@"ERROR (%d): %@", httpResponse.statusCode, [connectionError localizedDescription]);
+                                       NSLog(@"ERROR (%ld): %@", (long)httpResponse.statusCode, [connectionError localizedDescription]);
                                    }
                                    
                                    if (httpResponse.statusCode == 200) {
@@ -223,6 +223,18 @@ NSString *const NFFileManagerKeyEtags = @"NFFileManagerEtags";
     
     NSLog(@"WARNING: Could not determine path for file named '%@'", filename);
     return nil;
+}
+
+- (BOOL)saveFileWithName:(NSString *)filename andData:(NSData *)data
+{
+    if (data == nil || filename == nil || filename.length == 0) {
+        return NO;
+    }
+    
+    NSString *documentsPath = [[self documentsDirectory] stringByAppendingPathComponent:filename];
+    BOOL success = [data writeToFile:documentsPath atomically:YES];
+
+    return success;
 }
 
 - (NSString *)documentsDirectory

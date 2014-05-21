@@ -27,5 +27,6 @@ extern NSString *const NFFileManagerSyncStartedNotification;
 - (NSData *)fileWithName:(NSString *)filename;
 - (UIImage *)imageWithName:(NSString *)filename;
 - (NSString *)fullPathForFileWithName:(NSString *)filename;
+- (BOOL)saveFileWithName:(NSString *)filename andData:(NSData *)data;
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C12D465192C39EF004D9F17 /* NFAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C12D464192C39EF004D9F17 /* NFAddViewController.m */; };
 		7C4BCCBF1842E93F00AA8128 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C4BCCBE1842E93F00AA8128 /* Foundation.framework */; };
 		7C4BCCC11842E93F00AA8128 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C4BCCC01842E93F00AA8128 /* CoreGraphics.framework */; };
 		7C4BCCC31842E93F00AA8128 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C4BCCC21842E93F00AA8128 /* UIKit.framework */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7C12D463192C39EF004D9F17 /* NFAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NFAddViewController.h; sourceTree = "<group>"; };
+		7C12D464192C39EF004D9F17 /* NFAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NFAddViewController.m; sourceTree = "<group>"; };
 		7C4BCCBB1842E93F00AA8128 /* NFFileManagerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NFFileManagerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C4BCCBE1842E93F00AA8128 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7C4BCCC01842E93F00AA8128 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -133,6 +136,8 @@
 				7C4BCCD71842E93F00AA8128 /* NFMasterViewController.m */,
 				7C4BCCD91842E93F00AA8128 /* NFDetailViewController.h */,
 				7C4BCCDA1842E93F00AA8128 /* NFDetailViewController.m */,
+				7C12D463192C39EF004D9F17 /* NFAddViewController.h */,
+				7C12D464192C39EF004D9F17 /* NFAddViewController.m */,
 				7C4BCCDC1842E93F00AA8128 /* Images.xcassets */,
 				7C4BCCC51842E93F00AA8128 /* Supporting Files */,
 			);
@@ -284,6 +289,7 @@
 				7C4BCCDB1842E93F00AA8128 /* NFDetailViewController.m in Sources */,
 				7C4BCCCB1842E93F00AA8128 /* main.m in Sources */,
 				7C4BCCD81842E93F00AA8128 /* NFMasterViewController.m in Sources */,
+				7C12D465192C39EF004D9F17 /* NFAddViewController.m in Sources */,
 				7C4BCCFC1842E99100AA8128 /* NFFileManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
