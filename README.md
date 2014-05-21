@@ -13,7 +13,7 @@ If you don't need any server functionality, you can still use the NFFileManager 
 
 1. Add to your Podfile:
 
-	`pod 'NFFileManager', :git => 'https://github.com/NextfazeSD/NFFileManager.git'
+	`pod 'NFFileManager', :git => 'https://github.com/NextfazeSD/NFFileManager.git`
 
 2. Run Install:
 	
